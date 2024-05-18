@@ -1,12 +1,13 @@
-import java.util.Scanner;
+class BinaryTree {
+    Node root;
 
-class Node {
-    int data;
-    int height;
-    Node left, right;
+    boolean identicalTrees(Node a, Node b) {
+        if (a == null && b == null)
+            return true;
 
-    Node(int d) {
-        data = d;
-        height = 1;
+        if (a != null && b != null)
+            return (a.data == b.data && identicalTrees(a.left, b.left) && identicalTrees(a.right, b.right));
+
+        return false;
     }
 }
