@@ -1,12 +1,15 @@
-using System;
-
-public class Node
+public class BinaryTree
 {
-    public int data;
-    public Node left, right;
-    public Node(int item)
+    public Node root;
+
+    public bool IdenticalTrees(Node a, Node b)
     {
-        data = item;
-        left = right = null;
+        if (a == null && b == null)
+            return true;
+
+        if (a != null && b != null)
+            return (a.data == b.data && IdenticalTrees(a.left, b.left) && IdenticalTrees(a.right, b.right));
+
+        return false;
     }
 }
